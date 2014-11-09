@@ -1,0 +1,109 @@
+<template name="views_dashboard">
+	<div class="dashboard">
+		{{#if createCoin}}
+			{{#AnimateWithVelocity}}
+				<div class="dimmContainer" data-animate data-property="opacity" data-duration="200" data-from-value="0" data-to-value="1"></div>
+			{{/AnimateWithVelocity}}
+		{{/if}}
+
+		<div class="page-menu">
+			<button class="paper-fab save-coin icon-checkmark {{#unless createCoin}}hidden{{/unless}}" aria-label="add coin"></button>
+			<button class="paper-fab add-coin {{#if createCoin}}cancel icon-cross{{else}}icon-plus3{{/if}}" aria-label="add coin"></button>
+			<!-- <paper-fab class="save-coin {{#unless createCoin}}hidden{{/unless}}" icon="check" role="button" tabindex="0" aria-label="add coin"></paper-fab> -->
+			<!-- <paper-fab class="add-coin {{#if createCoin}}cancel{{/if}}" icon="{{#if createCoin}}clear{{else}}add{{/if}}" role="button" tabindex="0" aria-label="add coin"></paper-fab> -->
+		</div>
+
+		
+		<div class="add-coin-form">
+			{{#with createCoin}}
+				<select name="coinSelection">
+					{{#each coins}}
+						<option value="{{_id}}" {{isSelected ../coin}}>{{name}} ({{symbol}})</option>
+					{{/each}}
+				</select>
+				<input type="number" step="0.00000001" name="buyPrice" placeholder="Your buy price" value="{{formatNumber buyPrice 'coin' true true}}" autofocus>
+				<input type="number" step="0.00000001" name="amount" placeholder="Amount you have" value="{{formatNumber amount 'coin' true true}}">
+				<input type="text" name="notes" placeholder="Notes like address or exchange" value="{{notes}}">
+			{{/with}}
+		</div>
+
+
+		<table class="shadow">
+			<thead class="sort-table">
+				<tr>
+					<td class="symbol">
+						Coin
+						{{#with showArrow "symbol"}}<i class="arrow {{#if isGreaterThan this 0}}icon-arrow-up5{{else}}icon-arrow-down6{{/if}}"></i>{{/with}}
+					</td>
+					<td class="currentPrice.btc">
+						Current Price
+						{{#with showArrow "currentPrice.btc"}}<i class="arrow {{#if isGreaterThan this 0}}icon-arrow-up5{{else}}icon-arrow-down6{{/if}}"></i>{{/with}}
+					</td>
+					<td class="change">
+						Change
+						{{#with showArrow "change"}}<i class="arrow {{#if isGreaterThan this 0}}icon-arrow-up5{{else}}icon-arrow-down6{{/if}}"></i>{{/with}}
+					</td>
+					<td class="amount">
+						Amount
+						{{#with showArrow "amount"}}<i class="arrow {{#if isGreaterThan this 0}}icon-arrow-up5{{else}}icon-arrow-down6{{/if}}"></i>{{/with}}
+					</td>
+					<td class="profit">
+						Profit
+						{{#with showArrow "profit"}}<i class="arrow {{#if isGreaterThan this 0}}icon-arrow-up5{{else}}icon-arrow-down6{{/if}}"></i>{{/with}}
+					</td>
+				</tr>
+			</thead>
+			<tbody class="coin-list">
+				{{#each userCoins}}
+					{{> views_dashboard_coin}}
+				{{else}}
+					<tr>
+						<td class="text" colspan="5"><p>Add a coin above with the +</p></td>
+					</tr>
+				{{/each}}
+			</tbody>
+		</table>
+	</div>
+
+</template>
+
+
+<template name="views_dashboard_coin">
+	<tr id="{{_id}}">
+		<td class="symbol">
+			<img src="https://coinmarketcap.com/static/img/coins/16x16/{{coinImageName}}.png" alt="{{name}} icon" class="coin-icon">
+			<a href="http://coinmarketcap.com/currencies/{{coinImageName}}/" target="_blank" title="{{name}}">{{symbol}}</a> 
+			{{#if notes}}
+				<button class="notes icon-paperclip {{#if showNotes}}active{{/if}}"></button>
+			{{/if}}
+			<button class="edit-coin icon-pencil"></button>
+			<button class="remove-coin icon-cross"></button>							
+		</td>
+		<td class="current-price">
+			<span class="text">{{formatNumber currentPrice.btc 'btc'}}</span>
+			<span class="sub-text">bought @ {{formatNumber buyPrice 'btc'}}</span>
+			<span class="sub-text change-small {{#if isGreaterThan change 0}}green{{else}}red{{/if}}">
+			{{formatNumber change 'fiat' true}}%
+			</span>
+		</td>
+		<td class="change {{#if isGreaterThan change 0}}green{{else}}red{{/if}}">
+			{{formatNumber change 'fiat' true}}%
+		</td>
+		<td class="amount">
+			<span class="text">{{formatNumber amount 'coin' true}}</span>
+			<span class="sub-text">{{currentValue 'btc'}} / {{currentValue}}</span>
+		</td>
+		<td class="profit {{#if isGreaterThan profit 0}}green{{else}}red{{/if}}">
+			{{formatPrice profit}}
+		</td>
+	</tr>
+	<tr class="notes">
+	{{#if showNotes}}
+		{{#AnimateWithVelocity}}
+			<td colspan="5" data-animate data-property="font-size" data-duration="200" data-from-value="0" data-to-value="0.8em">
+				<p data-animate data-property="margin,margin-left" data-duration="200" data-from-value="0,100%" data-to-value="12px,0">{{{parseText notes true}}}</p>
+			</td>
+		{{/AnimateWithVelocity}}
+	{{/if}}
+	</tr>
+</template>

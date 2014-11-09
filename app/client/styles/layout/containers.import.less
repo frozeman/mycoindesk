@@ -1,0 +1,155 @@
+header.main {
+	z-index: 1;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	background-color: @colorBlue;
+	height: @sizeHeader;
+	color: @colorWhite;
+
+	h1 {
+		color: @colorWhite;
+		margin: @defaultPadding/2 @defaultPadding;
+		font-weight: 100;
+	}
+
+	// portfolio
+	.portfolio {
+		position: absolute;
+		top: @defaultPadding/2;
+		right: @defaultPadding;
+		cursor: pointer;
+
+		&:hover {
+			color: #111;
+		}
+
+		> span {
+			float: right;
+			clear: both;
+			font-weight: 100;
+			line-height: 1.3em;
+
+			> span {
+				font-size: 0.6em;
+			}
+
+			&.wealth {
+				font-size: 1.6em;
+			}
+			&.profit {
+				margin-top: -0.5em;
+				font-size: 0.8em;
+				font-weight: 200;
+
+				&.green-light:before {
+					content: '+';
+				}
+			}
+			&.bitcoin-price, &.bitcoin-price > span {
+				font-size: 0.7em;
+			}
+		}
+	}
+
+	// menu
+	ul {
+		.horizontalMenu;
+		position: absolute;
+		left: 0;
+		bottom: 4px;
+		margin: 0 @defaultPadding - 3px;
+
+		li {
+			height: 100%;
+			padding-right: 10px;
+			font-size: 14px;
+		}
+	}
+
+	#login-buttons {
+		z-index: 2;
+		position: fixed;
+		top: @defaultPadding;
+		right: @defaultPadding;
+		font-size: 16px;
+
+		a {
+			text-decoration: none;
+		}
+
+		.accounts-dialog {
+			position: absolute;
+			left: -200px;
+		}
+	}
+}
+
+.page-menu {
+	position: absolute;
+	top: -40px;
+	right: @defaultPadding * 2;
+}
+
+main.content {
+	z-index: 2;
+	position: relative;
+	margin: 0 auto;
+	margin-top: @sizeHeader;
+	max-width: 960px;
+
+	.tile {
+		margin: @defaultMargin; 
+		margin-top: 128px;
+		padding: @defaultPadding;
+		clear: both;
+		background-color: fadeout(#fff, 5%);
+		background-color: #fff;
+		.opacity(0.95);
+	}
+}
+
+.modalView-question {
+	position: fixed;
+	top: 30%;
+	left: 50%;
+	margin-left: -145px;
+	width: 250px;
+	background-color: #fff;
+	padding: @defaultPadding;
+	.opacity(0); // initial state, prevent flickering
+
+	button {
+		.defaultButton;
+	}
+}
+
+.dimmContainer {
+	z-index: 1;
+	position: fixed;
+	background-color: fadeout(#111, 30%);
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+
+	.opacity(0); // initial state
+}
+
+.loading-container {
+	z-index: 2;
+	position: fixed;
+	background-color: fadeout(#fff, 30%);
+	top: @sizeHeader;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+
+	h1.loading-text {
+		margin-top: 10%;
+		font-size: 30px;
+		font-weight: 100;
+	}
+}

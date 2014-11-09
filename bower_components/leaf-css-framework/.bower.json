@@ -1,0 +1,31 @@
+{
+  "name": "leaf-css-framework",
+  "homepage": "http://getleaf.com",
+  "authors": [
+    "kkortes <kim@kortes.se>"
+  ],
+  "description": "Leaf CSS Framework based on Google's material design",
+  "keywords": [
+    "materialdesign",
+    "css",
+    "framework"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "_release": "b46abe6a4e",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "b46abe6a4e3950006b3cfd1cfb8cc40bd1fca5b9"
+  },
+  "_source": "git://github.com/kkortes/leaf.git",
+  "_target": "*",
+  "_originalSource": "leaf-css-framework",
+  "_direct": true
+}

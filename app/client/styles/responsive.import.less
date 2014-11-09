@@ -1,0 +1,111 @@
+// DESKTOP LARGE
+// LANDSCAPE
+@media screen and (min-width: 1024px) {
+	body {
+		font-size: 20px;
+	}
+
+	// layout
+	table {
+		font-weight: 200;
+	}
+}
+
+// MOBILE LANDSCAPE
+@media screen and (max-width: 568px) {
+	body {
+		// font-size: 15px;
+	}
+
+	// containers
+	header.main {
+
+		// portfolio
+		.portfolio {
+
+			> span {
+
+				&.wealth {
+					font-size: 1.8em;
+				}
+				&.profit, &.bitcoin-price {
+					font-weight: 400;
+				}
+			}
+		}
+	}
+
+	// layout
+	.page-menu {
+		right: @defaultPadding;
+	}
+
+	.dashboard table {
+		.box-shadow(0 1px 5px rgba(0,0,0,0.5));
+		width: 100%;
+		max-width: 100%;
+		margin: 0;
+
+		td {
+			padding: 14px 6px;
+
+			&.symbol {
+				img.coin-icon {
+					left: 1px;
+				}
+
+				button, i {
+					margin-top: 5px;
+					margin-left: 3px;
+				}
+			}
+			&.change {
+				display: none;
+			}
+			.change-small {
+				display: inline-block;
+			}
+		}
+	}
+
+	// mixins
+	.defaultButton {
+		padding: @defaultPadding - 4 @defaultPadding - 2;
+	}
+}
+
+// MOBILE PORTRAIT
+@media screen and (max-width: 320px) {
+	body {
+		font-size: 12px;
+	}
+
+	// containers
+	header.main {
+		ul {
+			bottom: @defaultPadding * 0.5;
+
+			li {
+				margin-top: -5px;
+			}
+		}
+	}
+
+	// table
+	table {
+		.box-shadow(0 1px 4px rgba(0,0,0,0.5));
+
+		td {
+			padding: 6px 0px;
+
+			&.symbol {
+				> a {
+					float: left;
+				}
+				img.coin-icon {
+					display: none;
+				}
+			}
+		}
+	}
+}

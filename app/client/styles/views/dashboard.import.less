@@ -1,0 +1,185 @@
+.dashboard {
+
+	.page-menu {
+		z-index: 3;
+
+		button.paper-fab {
+			fill: #333;
+
+			// animation
+			.transition-property(opacity, background-color, right, transform);
+			.transition-duration(400ms);
+
+			&.add-coin {
+				z-index: 2;
+				background-color: @colorGreenLight;
+
+				&.cancel {
+					background-color: @colorRed;
+				}
+			}
+			&.save-coin {
+				z-index: 1;
+				position: absolute;
+				top: 0;
+				right: 70px;
+				background-color: @colorGreenLight;
+				.opacity(1);
+
+				&.hidden {
+					right: 0;
+					.opacity(0);
+				}
+			}
+		}
+	}
+
+	.add-coin-form {
+		z-index: 2;
+		position: relative;
+		margin-top: 140px;
+		min-height: 30px;
+		padding: 0 @defaultPadding;
+		margin-bottom: @defaultPadding;
+
+		> * {
+			margin-right: 20px;
+		}
+
+		select {
+			// float: left;
+			position: relative;
+			// top: 23px;
+			// margin-bottom: 40px;
+
+			option {
+				font-size: 18px;
+				font-weight: 100;
+			}
+		}
+
+		input {
+			min-width: 270px;
+			margin-top: @defaultMargin / 2;
+			.placeholder(@colorWhite);
+			color: @colorWhite;
+		}
+		input[name="notes"] {
+			width: 98%;
+		}
+	}
+
+	table {
+		margin-bottom: @defaultMargin * 2;
+
+		.sort-table {
+			cursor: pointer;
+
+			.arrow {
+				position: relative;
+				top: 2px;
+				// color: @colorBlue;
+			}
+		}
+
+		td {
+			position: relative;
+			text-align: right;
+
+			&.symbol {
+				text-align: left;
+
+				button {
+					padding: 0;
+					margin: 0;
+					background: none;
+					visibility: hidden;
+				}
+				button.notes {
+					visibility: visible;
+					color: @colorGray;
+
+					&:hover,
+					&.active {
+						color: @colorBlack;
+					}
+				}
+			}
+			&.current-price, &.profit {
+				.btc-symbol {
+					font-size: 0.8em;
+				}
+			}
+			&.text {
+				text-align: center;
+			}
+
+			.change-small {
+				display: none;
+			}
+
+		}
+
+		tbody {
+			td {
+				&.change {
+					font-size: 0.8em;
+				}
+			}
+
+
+			tr {
+				border-bottom: solid 2px darken(@colorWhite, 2%);
+
+				&:hover {
+					td.symbol {
+						button {
+							visibility: visible;
+						}
+					}
+				}
+			}
+
+			// notes row
+			tr.notes {
+
+				td {
+					position: relative;
+					padding: 0 @defaultPadding;
+					text-align: left;
+					font-size: 0;
+					overflow: hidden;
+
+					.transition-property(font-size);
+				}
+
+				p {
+					display: inline-block;
+				}
+
+				a {
+					.colored-link;
+				}
+			}
+		}
+
+		img.coin-icon {
+			position: relative;
+			top: 2px;
+			left: -6px;
+			height: 16px;
+			width: 16px;
+		}
+
+		span.text {
+			float: right;
+		}
+		span.sub-text {
+			font-size: 10px;
+			clear: both;
+			float: right;
+			color: @colorGray;
+		}
+	}
+}
+

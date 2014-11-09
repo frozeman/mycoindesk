@@ -1,0 +1,23 @@
+# Meteor packages used by this project, one per line.
+#
+# 'meteor add' and 'meteor remove' will edit this file for you,
+# but you can also edit it by hand.
+
+meteor-platform
+accounts-ui
+accounts-password
+showdown
+less
+http
+spiderable
+iron:router
+frozeman:template-var
+pfafman:accounts-entry
+aldeed:collection2
+mrt:q
+mrt:animation-helper-velocity
+mrt:numeral
+mrt:underscore-string-latest
+meteorhacks:kadira
+appcache
+

@@ -1,0 +1,73 @@
+
+
+// COLORS
+.green {
+	color: @colorGreen !important;
+}
+.green-light {
+	color: @colorGreenLight;
+}
+.red {
+	color: @colorRed !important;
+}
+.red-light {
+	color: @colorRedLight;
+}
+
+.colored-link {
+	position: static;
+	border: 0;
+	padding: 0;
+	margin: 0;
+
+	color: @colorBlue;
+
+	&:hover,
+	&:focus {
+		color: @colorBlack;
+	}
+}
+
+// menus
+.horizontalMenu {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+
+	li {
+		display: inline-block;
+		margin: 0;
+		padding: 0;
+	}
+}
+
+
+// BUTTONS
+.defaultButton {
+	padding: @defaultPadding / 2 @defaultPadding;
+	background: @colorGreen;
+	color: @colorWhite;
+	.border-radius(2px);
+
+	&:hover,
+	&:focus {
+		background: darken(@colorGreen, 10%);
+	}
+	&:active {
+		.scale(0.95);
+	}
+}
+
+.paper-fab {
+	position: relative;
+	width: 56px;
+	height: 56px;
+	.border-radius(28px);
+	.box-shadow(0 2px 12px rgba(0,0,0,0.3));
+	font-size: 20px;
+}
+
+// EFFECTS
+.shadow {
+	.box-shadow(0 2px 8px rgba(0,0,0,0.3));
+}

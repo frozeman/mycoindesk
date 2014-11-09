@@ -1,0 +1,29 @@
+a,
+span,
+div,
+strong
+  &.list-item
+    color:$text-color
+    display:block
+    width:100%
+    position:relative
+    padding:10px 10px
+    clearfix()
+    .text
+      border-top:1px solid transparent
+      border-bottom:1px solid transparent
+      center(false)
+    .pull-left + .text
+      padding:0 0 10px 0
+      border-bottom:1px solid $weak-color
+    .clearfix
+      .pull-left, .pull-right
+        center(false)
+    .icon
+      &:first-child
+        margin-right:5px
+a
+  &.list-item
+    &:hover
+      text-decoration:none
+      text-teal()
