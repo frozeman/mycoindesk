@@ -5,6 +5,26 @@ Fiber = Npm.require('fibers');
 Meteor.startup(function() {
 	console.log('Server started');
 
+
+	// remap coins to user coins
+	// var coinSymbols = [];
+	// _.each(UserCoins.find().fetch(), function(item){
+	// 	var coin = Coins.findOne({_id: item.coin});
+	// 	if(coin){
+	// 		coinSymbols.push({
+	// 			userCoinId: item._id,
+	// 			symbol: coin.symbol
+	// 		});
+	// 	}
+	// });
+	
+	// remove all coins
+	// _.each(Coins.find().fetch(), function(item){
+	// 	Coins.remove(item._id);
+	// });
+
+
+
 	// pull coin data every 30s
 	Meteor.setInterval(function(){
 
@@ -23,6 +43,18 @@ Meteor.startup(function() {
 		}));
 
 	}, (1000 * 60 * 1));
+
+	// remap to the new coins
+	// Meteor.setTimeout(function(){
+	// 	console.log(coinSymbols);
+	// 	_.each(coinSymbols, function(item){
+	// 		var coin = Coins.findOne({symbol: item.symbol});
+	// 		if(coin){
+	// 			var coin = UserCoins.update({_id: item.userCoinId}, {$set: {coin: coin._id}});
+	// 		}
+	// 	});
+	// }, 60000);
+
 
 
 	// clean up database duplicates
@@ -188,8 +220,10 @@ var saveAPIResponse = Meteor.bindEnvironment(function(resultData){
 	if(_.isArray(resultData)) {
 		// run inside a fiber
 		// Fiber(function() {
+			var countUpdates = 0;
 
 			_.each(resultData, function(item){
+
 
 				// transform
 				_.each(item.priceData.price, function(value, key){
@@ -209,6 +243,7 @@ var saveAPIResponse = Meteor.bindEnvironment(function(resultData){
 				item.supply = item.priceData.supply;
 				item.change = item.priceData.change;
 				item.currentPrice = item.priceData.price;
+				item.timestamp = item.priceData.timestamp;
 
 
 
@@ -223,7 +258,7 @@ var saveAPIResponse = Meteor.bindEnvironment(function(resultData){
 
 				// UPDATE EXISTING COIN
 				} else {
-					Coins.update(existingCoin._id, {
+					countUpdates += Coins.update(existingCoin._id, {
 						// $addToSet: {priceData: item.priceData},
 						$set: {
 							name: item.name,
@@ -236,7 +271,7 @@ var saveAPIResponse = Meteor.bindEnvironment(function(resultData){
 				}
 			});
 
-			console.log('Successfully parsed '+ resultData.length +' Coins');
+			console.log('Successfully parsed '+ countUpdates +' Coins');
 		// }).run();
 	}
 });
