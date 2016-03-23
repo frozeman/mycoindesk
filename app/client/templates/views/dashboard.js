@@ -8,6 +8,20 @@ Template Controllers
 // session defaults
 Session.setDefault('dashboard_sorting',{'profit': -1});
 
+// GLOBAL EVENT
+// possible selectable currencies
+var currencies = ['btc','usd','eur'];
+switchCurrency = function(e, template){
+	var currentSelected = Session.get('displayCurrency'),
+		index = _.indexOf(currencies, currentSelected);
+
+
+	if (currencies[index+1])
+		Session.set('displayCurrency', currencies[index+1]);
+	else
+		Session.set('displayCurrency', currencies[0]);
+};
+
 
 
 /**
@@ -22,87 +36,76 @@ Debug template objects
 
 @return {string}
 */
-Template['views_dashboard'].debug = function(object){
-	console.log(object);
-};
+Template['views_dashboard'].helpers({
+	debug: function(object){
+		console.log(object);
+	},
 
 
 
-/**
-Show the create coin form
+	/**
+	Show the create coin form
 
-@return {boolean}
-*/
-Template['views_dashboard'].created = function(){
-	TemplateVar.set('showCreateCoin', false);
-};
-
-
-// DATA
-/**
-Get all coins data
-
-@return {Array}
-*/
-Template['views_dashboard'].coins = function(){
-	return Coins.find({},{sort: {name: 1}, fields: {priceData: 0}});
-};
+	@return {boolean}
+	*/
+	created: function(){
+		TemplateVar.set('showCreateCoin', false);
+	},
 
 
-// REACTIVE
+	// DATA
+	/**
+	Get all coins data
 
-/**
-Show the create coin form
-
-@return {boolean}
-*/
-Template['views_dashboard'].createCoin = function(){
-	return TemplateVar.get('showCreateCoin');
-};
-
-/**
-Select the current editable coin
-
-@return {boolean}
-*/
-Template['views_dashboard'].isSelected = function(coin){
-	return (coin === this._id) ? 'selected' : '';
-};
+	@return {Array}
+	*/
+	coins: function(){
+		return Coins.find({},{sort: {name: 1}, fields: {priceData: 0}});
+	},
 
 
-/**
-Return user coins
+	// REACTIVE
 
-@return {array}
-*/
-Template['views_dashboard'].userCoins = function(){
-	return LocalUserCoins.find({user: Meteor.userId()}, {sort: Session.get('dashboard_sorting')});
-};
+	/**
+	Show the create coin form
 
-/**
-Return user coin
+	@return {boolean}
+	*/
+	createCoin: function(){
+		return TemplateVar.get('showCreateCoin');
+	},
 
-@return {object}
-*/
-Template['views_dashboard'].showArrow = function(sort){
-	var sorting = Session.get('dashboard_sorting');
-	return sorting[sort];
-};
+	/**
+	Select the current editable coin
 
-
-// GLOBAL EVENT
-// possible selectable currencies
-var currencies = ['btc','usd','eur'];
-switchCurrency = function(e, template){
-	var currentSelected = Session.get('displayCurrency'),
-		index = _.indexOf(currencies, currentSelected);
+	@return {boolean}
+	*/
+	isSelected: function(coin){
+		return (coin === this._id) ? 'selected' : '';
+	},
 
 
-	if (currencies[index+1])
-		Session.set('displayCurrency', currencies[index+1]);
-	else
-		Session.set('displayCurrency', currencies[0]);
-};
+	/**
+	Return user coins
+
+	@return {array}
+	*/
+	userCoins: function(){
+		return LocalUserCoins.find({user: Meteor.userId()}, {sort: Session.get('dashboard_sorting')});
+	},
+
+	/**
+	Return user coin
+
+	@return {object}
+	*/
+	showArrow: function(sort){
+		var sorting = Session.get('dashboard_sorting');
+		return sorting[sort];
+	}
+});
+
+
 
 
 Template['views_dashboard'].events({
@@ -250,43 +253,45 @@ Show the note
 
 @return {string}
 */
-Template['views_dashboard_coin'].showNotes = function(){
-	return TemplateVar.get('showNotes');
-};
+Template['views_dashboard_coin'].helpers({
+	showNotes: function(){
+		return TemplateVar.get('showNotes');
+	},
 
 
-/**
-Return coins image name
+	/**
+	Return coins image name
 
-@return {string}
-*/
-Template['views_dashboard_coin'].coinImageName = function(){
-	return (this) ? _.slugify(this.name) : '';
-};
+	@return {string}
+	*/
+	coinImageName: function(){
+		return (this) ? _.slugify(this.name) : '';
+	},
 
 
-/**
-Gets the current value of the amount
+	/**
+	Gets the current value of the amount
 
-@return {string}
-*/
-Template['views_dashboard_coin'].currentValue = function(passedCurrency){
-	var btcPrice = Session.get('bitcoinPrice'),
-		currency = (_.isString(passedCurrency)) ? passedCurrency : Session.get('displayCurrency');
+	@return {string}
+	*/
+	currentValue: function(passedCurrency){
+		var btcPrice = Session.get('bitcoinPrice'),
+			currency = (_.isString(passedCurrency)) ? passedCurrency : Session.get('displayCurrency');
 
-	if(!this)
-		return '';
+		if(!this)
+			return '';
 
-	if(_.isString(passedCurrency) && currency === 'btc')
-		return Helpers.formatNumber(this.amount * this.currentPrice.btc, currency);
-	
-	else {
-		// prevent display of btc
-		currency = (currency === 'btc') ? 'usd' : currency;
+		if(_.isString(passedCurrency) && currency === 'btc')
+			return Helpers.formatNumber(this.amount * this.currentPrice.btc, currency);
+		
+		else {
+			// prevent display of btc
+			currency = (currency === 'btc') ? 'usd' : currency;
 
-		return Helpers.formatNumber((this.amount * this.currentPrice.btc) * btcPrice[currency], currency);
+			return Helpers.formatNumber((this.amount * this.currentPrice.btc) * btcPrice[currency], currency);
+		}
 	}
-};
+});
 
 
 

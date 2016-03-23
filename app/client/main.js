@@ -7,7 +7,7 @@ Meteor.startup(function() {
 		// profileRoute: '/profile'
 		passwordSignupFields: 'EMAIL_ONLY',
 		showSignupCode: false,
-		showOtherLoginServices: true      // Set to false to hide oauth login buttons on the signin/signup pages. Useful if you are using something like accounts-meld or want to oauth for api access
+		showOtherLoginServices: false      // Set to false to hide oauth login buttons on the signin/signup pages. Useful if you are using something like accounts-meld or want to oauth for api access
 		// extraSignUpFields: [{             // Add extra signup fields on the signup page
 		// 	field: "name",                           // The database property you want to store the data in
 		// 	name: "This Will Be The Initial Value",  // An initial value for the field, if you want one
