@@ -1,5 +1,20 @@
 Fiber = Npm.require('fibers');
 
+var deferred = function() {
+    var resolve, reject,
+        promise = new P(function() {
+            resolve = arguments[0];
+            reject = arguments[1];
+        });
+
+
+    return {
+        resolve: resolve,
+        reject: reject,
+        promise: promise
+    };
+};
+
 
 // START the SERVER
 Meteor.startup(function() {
@@ -38,7 +53,7 @@ Meteor.startup(function() {
 			return callNexuistAPI()
 			.then(saveAPIResponse);
 		}))
-		.fail(Meteor.bindEnvironment(function(error){
+		.catch(Meteor.bindEnvironment(function(error){
 			console.error('Couldn\'t connect to any API', error);
 		}));
 
@@ -73,7 +88,7 @@ http://coinmarketcap-nexuist.rhcloud.com/api/all
 
 */
 var callNexuistAPI = function(){
-	var defer = Q.defer();
+	var defer = deferred();
 
 
 	HTTP.get('http://coinmarketcap-nexuist.rhcloud.com/api/all', function(error, result){
@@ -117,7 +132,7 @@ http://coinmarketcap.northpole.ro/api/v5/all.json
 
 */
 var callNorthpoleAPI = function(){
-	var defer = Q.defer();
+	var defer = deferred();
 
 	HTTP.get('http://coinmarketcap.northpole.ro/api/v5/all.json', function(error, result){
 

@@ -9,7 +9,7 @@ Meteor.startup(function(){
 	// SUBSCRIBE TO BITCOIN
 	Meteor.subscribe('bitcoin');
 	// store the current bitcoin price in a session
-	Deps.autorun(function(c){
+	Tracker.autorun(function(c){
 		var btc = Coins.findOne({symbol: 'BTC'});
 
 		if(!c.firstRun && btc && btc.currentPrice)
@@ -17,7 +17,7 @@ Meteor.startup(function(){
 	});
 
 
-	Deps.autorun(function(c){
+	Tracker.autorun(function(c){
 		var userCoins = UserCoins.find({user: Meteor.userId()}).fetch();
 		// if(c.firstRun) return;
 
@@ -32,6 +32,8 @@ Meteor.startup(function(){
 
 		// add user coin data
 		var coin = Coins.findOne(userCoin.coin);
+
+		console.log(coin);
 
 		// only proceed when priceData is available
 		if(coin && coin.currentPrice) {
@@ -51,7 +53,7 @@ Meteor.startup(function(){
 	};
 
 	var localCollectionObserve = {};
-	Deps.autorun(function(c){
+	Tracker.autorun(function(c){
 		var user = Meteor.userId(),
 			userCoins = UserCoins.find({user: user});
 
