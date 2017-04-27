@@ -1,0 +1,73 @@
+{
+  "format": "unipackage-unibuild-pre1",
+  "packageVariables": [
+    {
+      "name": "AccountsEntry",
+      "export": true
+    },
+    {
+      "name": "__coffeescriptShare"
+    }
+  ],
+  "uses": [
+    {
+      "package": "meteor"
+    },
+    {
+      "package": "iron:router",
+      "constraint": "0.9.1"
+    },
+    {
+      "package": "softwarerero:accounts-t9n",
+      "constraint": "0.0.17"
+    },
+    {
+      "package": "joshowens:simple-form",
+      "constraint": "0.1.8"
+    },
+    {
+      "package": "deps",
+      "constraint": "1.0.1"
+    },
+    {
+      "package": "service-configuration",
+      "constraint": "1.0.0"
+    },
+    {
+      "package": "accounts-password",
+      "constraint": "1.0.0"
+    },
+    {
+      "package": "accounts-base",
+      "constraint": "1.0.0"
+    },
+    {
+      "package": "underscore",
+      "constraint": "1.0.0"
+    },
+    {
+      "package": "coffeescript",
+      "constraint": "1.0.2"
+    }
+  ],
+  "implies": [
+    {
+      "package": "accounts-base",
+      "constraint": "1.0.0"
+    },
+    {
+      "package": "accounts-password",
+      "constraint": "1.0.0"
+    }
+  ],
+  "resources": [
+    {
+      "type": "prelink",
+      "file": "os/packages/pfafman:accounts-entry.js",
+      "length": 7545,
+      "offset": 0,
+      "servePath": "/packages/pfafman:accounts-entry.js",
+      "sourceMap": "os/packages/pfafman:accounts-entry.js.map"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "name": "pfafman:accounts-entry",
+  "summary": "Make signin and signout their own pages with routes.",
+  "version": "0.9.4+a4a656c4f831876a6562abc71953e9ce6cff9d7b",
+  "earliestCompatibleVersion": "0.0.0",
+  "isTest": false,
+  "plugins": [],
+  "unibuilds": [
+    {
+      "arch": "os",
+      "path": "os.json"
+    },
+    {
+      "arch": "web.browser",
+      "path": "web.browser.json"
+    },
+    {
+      "arch": "web.cordova",
+      "path": "web.cordova.json"
+    }
+  ],
+  "format": "unipackage-pre2"
+}

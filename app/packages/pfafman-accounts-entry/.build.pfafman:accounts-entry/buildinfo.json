@@ -1,0 +1,123 @@
+{
+  "builtBy": "meteor/14",
+  "buildDependencies": {
+    "os.json": {
+      "files": {
+        "/Users/frozeman/Sites/mycoindesk/app/packages/pfafman-accounts-entry/package.js": "9c9961729227d1d131fcf689bdbc54793c151404",
+        "/Users/frozeman/Sites/mycoindesk/app/packages/pfafman-accounts-entry/server/entry.coffee": "85081a33f30e891187997f6874377d77340846b8",
+        "/Users/frozeman/Sites/mycoindesk/app/packages/pfafman-accounts-entry/shared/router.coffee": "fcd4d23b901de93b672c45970bcd2621cbe2995d"
+      },
+      "directories": []
+    },
+    "web.browser.json": {
+      "files": {
+        "/Users/frozeman/Sites/mycoindesk/app/packages/pfafman-accounts-entry/package.js": "9c9961729227d1d131fcf689bdbc54793c151404",
+        "/Users/frozeman/Sites/mycoindesk/app/packages/pfafman-accounts-entry/client/entry.coffee": "9091b46bb0c6a6705bb21c7529329ee5d8de4b55",
+        "/Users/frozeman/Sites/mycoindesk/app/packages/pfafman-accounts-entry/client/entry.less": "21f6dc7f3d927da9a313f2fe6cc175d0197bdcd0",
+        "/Users/frozeman/Sites/mycoindesk/app/packages/pfafman-accounts-entry/client/helpers.coffee": "2f48aff068da6381d95be43d97618f34d0091aa4",
+        "/Users/frozeman/Sites/mycoindesk/app/packages/pfafman-accounts-entry/client/views/lib/processing.html": "0bed71191f8b29e831f5a2a15edec1d3abc787fb",
+        "/Users/frozeman/Sites/mycoindesk/app/packages/pfafman-accounts-entry/client/views/lib/processing.less": "c4435b5a02d8b3785e483e712716d5e8323d2522",
+        "/Users/frozeman/Sites/mycoindesk/app/packages/pfafman-accounts-entry/client/views/signIn/signIn.html": "e06ddabf591852c1a3482ab683ece800402d6864",
+        "/Users/frozeman/Sites/mycoindesk/app/packages/pfafman-accounts-entry/client/views/signIn/signIn.coffee": "ce2b2814e9a021c2cec89f07c71d73b3449b1f97",
+        "/Users/frozeman/Sites/mycoindesk/app/packages/pfafman-accounts-entry/client/views/signUp/signUp.html": "b9fc04abee51a95242daa43ee48e32cc8b0bae2f",
+        "/Users/frozeman/Sites/mycoindesk/app/packages/pfafman-accounts-entry/client/views/signUp/signUp.coffee": "b76e578dbf2be258302c200c09fec1f9d7c68a2e",
+        "/Users/frozeman/Sites/mycoindesk/app/packages/pfafman-accounts-entry/client/views/signUp/extraSignUpFields.html": "d306edcf269eeef2e8015a48ce76a857abafa108",
+        "/Users/frozeman/Sites/mycoindesk/app/packages/pfafman-accounts-entry/client/views/signUp/extraSignUpFields.coffee": "91ae49807d4d42728eb1d8b97b1166e30fbc6e4b",
+        "/Users/frozeman/Sites/mycoindesk/app/packages/pfafman-accounts-entry/client/views/forgotPassword/forgotPassword.html": "466a169a60b48ab85ef5b17e4e39c7693b0d0795",
+        "/Users/frozeman/Sites/mycoindesk/app/packages/pfafman-accounts-entry/client/views/forgotPassword/forgotPassword.coffee": "c478ce2937650a4e5518cedf1107f1a7f527714e",
+        "/Users/frozeman/Sites/mycoindesk/app/packages/pfafman-accounts-entry/client/views/resetPassword/resetPassword.html": "f188cc0cb9b8b800f18b13898b6350d82710e37d",
+        "/Users/frozeman/Sites/mycoindesk/app/packages/pfafman-accounts-entry/client/views/resetPassword/resetPassword.coffee": "d8ab9c4b68fbb075c431d5b728e4673cafef4384",
+        "/Users/frozeman/Sites/mycoindesk/app/packages/pfafman-accounts-entry/client/views/social/social.html": "93b1c5226b0b4b07aef7b5e3479fb6ee9c28e6bc",
+        "/Users/frozeman/Sites/mycoindesk/app/packages/pfafman-accounts-entry/client/views/social/social.coffee": "3111d860935d086257a236a3328cc9e20c42884c",
+        "/Users/frozeman/Sites/mycoindesk/app/packages/pfafman-accounts-entry/client/views/error/error.html": "a0874c32d3c175a278c79eda8b94043745013e14",
+        "/Users/frozeman/Sites/mycoindesk/app/packages/pfafman-accounts-entry/client/views/error/error.coffee": "5858f3f2571e470d0e281dd86472e6a9f18b0f6e",
+        "/Users/frozeman/Sites/mycoindesk/app/packages/pfafman-accounts-entry/client/views/accountButtons/accountButtons.html": "84b00e881ebab8ef4b171b214ec9f3bd57865904",
+        "/Users/frozeman/Sites/mycoindesk/app/packages/pfafman-accounts-entry/client/views/accountButtons/_wrapLinks.html": "c96d47fe29a7efcae4f1a78cef54904bb58c633c",
+        "/Users/frozeman/Sites/mycoindesk/app/packages/pfafman-accounts-entry/client/views/accountButtons/signedIn.html": "56e3575a018e937ba6f19dedafc026ffa4291432",
+        "/Users/frozeman/Sites/mycoindesk/app/packages/pfafman-accounts-entry/client/views/accountButtons/accountButtons.coffee": "ec0fe9abd57ca90ab716ed0aa876099b59495111",
+        "/Users/frozeman/Sites/mycoindesk/app/packages/pfafman-accounts-entry/client/t9n/english.coffee": "34f693c755e51e2002c3c3addc0cdc67d3ca1dd9",
+        "/Users/frozeman/Sites/mycoindesk/app/packages/pfafman-accounts-entry/client/t9n/french.coffee": "2ee48b8c4e3af44d6bf182e91538f3b8d4f4cc20",
+        "/Users/frozeman/Sites/mycoindesk/app/packages/pfafman-accounts-entry/client/t9n/german.coffee": "9973642d45322f56b30471726a52a4247c3dd6f5",
+        "/Users/frozeman/Sites/mycoindesk/app/packages/pfafman-accounts-entry/client/t9n/italian.coffee": "59d53e16e490b19952461bb479a0dfb105d15712",
+        "/Users/frozeman/Sites/mycoindesk/app/packages/pfafman-accounts-entry/client/t9n/polish.coffee": "531906ef596bc0ad2e94e669ed304908cdef3b7d",
+        "/Users/frozeman/Sites/mycoindesk/app/packages/pfafman-accounts-entry/client/t9n/spanish.coffee": "b49e18c6d58432ba045388bd59354298dace923e",
+        "/Users/frozeman/Sites/mycoindesk/app/packages/pfafman-accounts-entry/client/t9n/swedish.coffee": "e6d9130f7949a484169917bfea1dff3e7967f819",
+        "/Users/frozeman/Sites/mycoindesk/app/packages/pfafman-accounts-entry/client/t9n/portuguese.coffee": "3b10ffcaffa67ade0ba51ddcfa6075112941221a",
+        "/Users/frozeman/Sites/mycoindesk/app/packages/pfafman-accounts-entry/client/t9n/slovene.coffee": "331a40ffede4b3ce1d5f4441ff4bde6f0053f46e",
+        "/Users/frozeman/Sites/mycoindesk/app/packages/pfafman-accounts-entry/client/t9n/russian.coffee": "4b2f9d31fd5058f3ee97aa6d72b1d8fa2fd99f18",
+        "/Users/frozeman/Sites/mycoindesk/app/packages/pfafman-accounts-entry/client/t9n/arabic.coffee": "66c9c4b7414d5c5852b486cd74b90af12fb744e6",
+        "/Users/frozeman/Sites/mycoindesk/app/packages/pfafman-accounts-entry/shared/router.coffee": "fcd4d23b901de93b672c45970bcd2621cbe2995d"
+      },
+      "directories": []
+    },
+    "web.cordova.json": {
+      "files": {
+        "/Users/frozeman/Sites/mycoindesk/app/packages/pfafman-accounts-entry/package.js": "9c9961729227d1d131fcf689bdbc54793c151404",
+        "/Users/frozeman/Sites/mycoindesk/app/packages/pfafman-accounts-entry/client/entry.coffee": "9091b46bb0c6a6705bb21c7529329ee5d8de4b55",
+        "/Users/frozeman/Sites/mycoindesk/app/packages/pfafman-accounts-entry/client/entry.less": "21f6dc7f3d927da9a313f2fe6cc175d0197bdcd0",
+        "/Users/frozeman/Sites/mycoindesk/app/packages/pfafman-accounts-entry/client/helpers.coffee": "2f48aff068da6381d95be43d97618f34d0091aa4",
+        "/Users/frozeman/Sites/mycoindesk/app/packages/pfafman-accounts-entry/client/views/lib/processing.html": "0bed71191f8b29e831f5a2a15edec1d3abc787fb",
+        "/Users/frozeman/Sites/mycoindesk/app/packages/pfafman-accounts-entry/client/views/lib/processing.less": "c4435b5a02d8b3785e483e712716d5e8323d2522",
+        "/Users/frozeman/Sites/mycoindesk/app/packages/pfafman-accounts-entry/client/views/signIn/signIn.html": "e06ddabf591852c1a3482ab683ece800402d6864",
+        "/Users/frozeman/Sites/mycoindesk/app/packages/pfafman-accounts-entry/client/views/signIn/signIn.coffee": "ce2b2814e9a021c2cec89f07c71d73b3449b1f97",
+        "/Users/frozeman/Sites/mycoindesk/app/packages/pfafman-accounts-entry/client/views/signUp/signUp.html": "b9fc04abee51a95242daa43ee48e32cc8b0bae2f",
+        "/Users/frozeman/Sites/mycoindesk/app/packages/pfafman-accounts-entry/client/views/signUp/signUp.coffee": "b76e578dbf2be258302c200c09fec1f9d7c68a2e",
+        "/Users/frozeman/Sites/mycoindesk/app/packages/pfafman-accounts-entry/client/views/signUp/extraSignUpFields.html": "d306edcf269eeef2e8015a48ce76a857abafa108",
+        "/Users/frozeman/Sites/mycoindesk/app/packages/pfafman-accounts-entry/client/views/signUp/extraSignUpFields.coffee": "91ae49807d4d42728eb1d8b97b1166e30fbc6e4b",
+        "/Users/frozeman/Sites/mycoindesk/app/packages/pfafman-accounts-entry/client/views/forgotPassword/forgotPassword.html": "466a169a60b48ab85ef5b17e4e39c7693b0d0795",
+        "/Users/frozeman/Sites/mycoindesk/app/packages/pfafman-accounts-entry/client/views/forgotPassword/forgotPassword.coffee": "c478ce2937650a4e5518cedf1107f1a7f527714e",
+        "/Users/frozeman/Sites/mycoindesk/app/packages/pfafman-accounts-entry/client/views/resetPassword/resetPassword.html": "f188cc0cb9b8b800f18b13898b6350d82710e37d",
+        "/Users/frozeman/Sites/mycoindesk/app/packages/pfafman-accounts-entry/client/views/resetPassword/resetPassword.coffee": "d8ab9c4b68fbb075c431d5b728e4673cafef4384",
+        "/Users/frozeman/Sites/mycoindesk/app/packages/pfafman-accounts-entry/client/views/social/social.html": "93b1c5226b0b4b07aef7b5e3479fb6ee9c28e6bc",
+        "/Users/frozeman/Sites/mycoindesk/app/packages/pfafman-accounts-entry/client/views/social/social.coffee": "3111d860935d086257a236a3328cc9e20c42884c",
+        "/Users/frozeman/Sites/mycoindesk/app/packages/pfafman-accounts-entry/client/views/error/error.html": "a0874c32d3c175a278c79eda8b94043745013e14",
+        "/Users/frozeman/Sites/mycoindesk/app/packages/pfafman-accounts-entry/client/views/error/error.coffee": "5858f3f2571e470d0e281dd86472e6a9f18b0f6e",
+        "/Users/frozeman/Sites/mycoindesk/app/packages/pfafman-accounts-entry/client/views/accountButtons/accountButtons.html": "84b00e881ebab8ef4b171b214ec9f3bd57865904",
+        "/Users/frozeman/Sites/mycoindesk/app/packages/pfafman-accounts-entry/client/views/accountButtons/_wrapLinks.html": "c96d47fe29a7efcae4f1a78cef54904bb58c633c",
+        "/Users/frozeman/Sites/mycoindesk/app/packages/pfafman-accounts-entry/client/views/accountButtons/signedIn.html": "56e3575a018e937ba6f19dedafc026ffa4291432",
+        "/Users/frozeman/Sites/mycoindesk/app/packages/pfafman-accounts-entry/client/views/accountButtons/accountButtons.coffee": "ec0fe9abd57ca90ab716ed0aa876099b59495111",
+        "/Users/frozeman/Sites/mycoindesk/app/packages/pfafman-accounts-entry/client/t9n/english.coffee": "34f693c755e51e2002c3c3addc0cdc67d3ca1dd9",
+        "/Users/frozeman/Sites/mycoindesk/app/packages/pfafman-accounts-entry/client/t9n/french.coffee": "2ee48b8c4e3af44d6bf182e91538f3b8d4f4cc20",
+        "/Users/frozeman/Sites/mycoindesk/app/packages/pfafman-accounts-entry/client/t9n/german.coffee": "9973642d45322f56b30471726a52a4247c3dd6f5",
+        "/Users/frozeman/Sites/mycoindesk/app/packages/pfafman-accounts-entry/client/t9n/italian.coffee": "59d53e16e490b19952461bb479a0dfb105d15712",
+        "/Users/frozeman/Sites/mycoindesk/app/packages/pfafman-accounts-entry/client/t9n/polish.coffee": "531906ef596bc0ad2e94e669ed304908cdef3b7d",
+        "/Users/frozeman/Sites/mycoindesk/app/packages/pfafman-accounts-entry/client/t9n/spanish.coffee": "b49e18c6d58432ba045388bd59354298dace923e",
+        "/Users/frozeman/Sites/mycoindesk/app/packages/pfafman-accounts-entry/client/t9n/swedish.coffee": "e6d9130f7949a484169917bfea1dff3e7967f819",
+        "/Users/frozeman/Sites/mycoindesk/app/packages/pfafman-accounts-entry/client/t9n/portuguese.coffee": "3b10ffcaffa67ade0ba51ddcfa6075112941221a",
+        "/Users/frozeman/Sites/mycoindesk/app/packages/pfafman-accounts-entry/client/t9n/slovene.coffee": "331a40ffede4b3ce1d5f4441ff4bde6f0053f46e",
+        "/Users/frozeman/Sites/mycoindesk/app/packages/pfafman-accounts-entry/client/t9n/russian.coffee": "4b2f9d31fd5058f3ee97aa6d72b1d8fa2fd99f18",
+        "/Users/frozeman/Sites/mycoindesk/app/packages/pfafman-accounts-entry/client/t9n/arabic.coffee": "66c9c4b7414d5c5852b486cd74b90af12fb744e6",
+        "/Users/frozeman/Sites/mycoindesk/app/packages/pfafman-accounts-entry/shared/router.coffee": "fcd4d23b901de93b672c45970bcd2621cbe2995d"
+      },
+      "directories": []
+    }
+  },
+  "pluginDependencies": {
+    "files": {
+      "/Users/frozeman/Sites/mycoindesk/app/packages/pfafman-accounts-entry/package.js": "9c9961729227d1d131fcf689bdbc54793c151404"
+    },
+    "directories": []
+  },
+  "source": "/Users/frozeman/Sites/mycoindesk/app/packages/pfafman-accounts-entry",
+  "buildTimeDirectDependencies": {
+    "accounts-password": "1.0.4",
+    "session": "1.0.4",
+    "softwarerero:accounts-t9n": "0.0.17",
+    "templating": "1.0.9",
+    "coffeescript": "1.0.4",
+    "deps": "1.0.5",
+    "accounts-base": "1.1.2",
+    "less": "1.0.11",
+    "underscore": "1.0.1",
+    "iron:router": "0.9.4",
+    "pfafman:coffee-alerts": "0.2.0",
+    "service-configuration": "1.0.2",
+    "sha": "1.0.1",
+    "meteor": "1.1.3",
+    "joshowens:simple-form": "0.1.8",
+    "sacha:spin": "0.1.4",
+    "ui": "1.0.4"
+  },
+  "buildTimePluginDependencies": {},
+  "cordovaDependencies": null
+}

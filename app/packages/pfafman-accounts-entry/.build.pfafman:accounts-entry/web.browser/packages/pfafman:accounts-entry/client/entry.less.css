@@ -1,0 +1,143 @@
+.entry-logo {
+  width: 300px;
+  margin: auto;
+  margin-top: 10px;
+}
+.entry {
+  float: none;
+  margin: auto;
+  overflow: auto;
+  margin-top: 5px;
+  background: #fff;
+  border-radius: 10px;
+  padding: 15px;
+  color: #444;
+  max-width: 300px;
+}
+.entry h3 {
+  margin-top: 0px;
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: 800;
+  text-align: center;
+}
+.entry p {
+  font-size: 15px;
+  line-height: 20px;
+}
+.entry fieldset {
+  margin-top: 40px;
+}
+.entry .entry-signin-cta {
+  margin-bottom: 30px;
+  text-align: center;
+}
+.entry .entry-agreement {
+  margin-top: 20px;
+  font-size: 13px;
+}
+.entry-social {
+  margin-top: 10px;
+}
+.entry-social button {
+  display: block;
+  width: 280px;
+  margin: auto;
+  margin-bottom: 10px;
+  padding: 8px 10px;
+  border-radius: 5px;
+  font-size: 16px;
+}
+.entry-social button i {
+  float: left;
+  width: 40px;
+  font-size: 20px;
+  margin-top: 1px;
+  padding-right: 15px;
+  padding-left: 5px;
+  border-right: 1px solid rgba(0, 0, 0, 0.2);
+}
+.entry-social button#entry-facebook {
+  background: #3B5998;
+  color: #fff;
+}
+.entry-social button#entry-facebook:hover {
+  background: #2C4780;
+}
+.entry-social button#entry-twitter {
+  background: #4099FF;
+  color: #fff;
+}
+.entry-social button#entry-twitter:hover {
+  background: #3288EB;
+}
+.entry-social button#entry-google {
+  background: #db5a3c;
+  color: #fff;
+}
+.entry-social button#entry-google:hover {
+  background: #CA4C2E;
+}
+.entry-social button#entry-github {
+  background: #666;
+  color: #fff;
+}
+.entry-social button#entry-github:hover {
+  background: #555;
+}
+.email-option {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 500;
+}
+.email-option .line-thru {
+  display: block;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  font-size: 12px;
+  position: relative;
+  text-align: center;
+  width: 100%;
+  z-index: 1;
+}
+.email-option .line-thru:before {
+  width: 40px;
+  height: 10px;
+  background-color: #fff;
+  content: '';
+  margin: -5px 0 0 -20px;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  z-index: -1;
+}
+.email-option .line-thru:after {
+  border-bottom: 1px solid #999;
+  content: '';
+  display: block;
+  position: absolute;
+  top: 49%;
+  width: 100%;
+  z-index: -2;
+}
+.email-option .line-thru.or-sign-in {
+  margin-bottom: 30px;
+}
+.entry-form {
+  margin-top: 20px;
+}
+.entry-form label {
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+.entry-form button.submit {
+  font-size: 16px;
+}
+.entry-signup-cta {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 16px;
+}
+.entry-sign-out {
+  cursor: pointer;
+}

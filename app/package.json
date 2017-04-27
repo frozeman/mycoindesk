@@ -1,0 +1,23 @@
+{
+  "name": "mycoindesk",
+  "version": "0.1.0",
+  "description": "Track your cryptocurrencies in on place.",
+  "main": "collections.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/frozeman/mycoindesk.git"
+  },
+  "author": "Fabian Vogelsteller <fabian@frozeman.de>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/frozeman/mycoindesk/issues"
+  },
+  "homepage": "https://github.com/frozeman/mycoindesk#readme",
+  "dependencies": {
+    "babel-runtime": "^6.23.0",
+    "bcrypt": "^1.0.2"
+  }
+}

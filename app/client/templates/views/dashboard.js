@@ -102,6 +102,18 @@ Template['views_dashboard'].helpers({
 	showArrow: function(sort){
 		var sorting = Session.get('dashboard_sorting');
 		return sorting[sort];
+	},
+	dynamicTemplate: function(){
+		var templ = TemplateVar.get('dynamicTemplate');
+		if(templ) {
+			return templ.template;
+		}
+	},
+	dynamicTemplateData: function(){
+		var templ = TemplateVar.get('dynamicTemplate');
+		if(templ) {
+			return templ.data;
+		}
 	}
 });
 
@@ -224,16 +236,30 @@ Template['views_dashboard'].events({
 		var userCoindID = $(e.currentTarget).parents('tr').attr('id');
 
 		// add new info modal
-		var modal = new Iron.DynamicTemplate({template: 'modalView_question', data: {
+		// var modal = new Iron.DynamicTemplate({template: 'modalView_question', data: {
+	 //    	title: 'Remove this coin?',
+	 //    	ok: function(){
+	 //    		UserCoins.remove(userCoindID);
+	 //    		modal.clear();
+	 //    	},
+	 //    	cancel: function(){
+	 //    		modal.clear();
+	 //    	}
+	 //    }}).insert({el: 'body'});
+
+
+		var modal = {template: 'modalView_question', data: {
 	    	title: 'Remove this coin?',
 	    	ok: function(){
 	    		UserCoins.remove(userCoindID);
-	    		modal.clear();
+	    		TemplateVar.set(template, 'dynamicTemplate', null);
 	    	},
 	    	cancel: function(){
-	    		modal.clear();
+	    		TemplateVar.set(template, 'dynamicTemplate', null);
 	    	}
-	    }}).insert({el: 'main.content'});
+	    }};
+
+		TemplateVar.set('dynamicTemplate', modal);
 	}
 });
 
