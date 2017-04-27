@@ -17,7 +17,6 @@
   },
   "homepage": "https://github.com/frozeman/mycoindesk#readme",
   "dependencies": {
-    "babel-runtime": "^6.23.0",
-    "bcrypt": "^1.0.2"
+    "babel-runtime": "^6.23.0"
   }
 }
