@@ -45,14 +45,15 @@ Meteor.startup(function() {
 
 		console.log('Call Coin API\'s');
 
-		callNorthpoleAPI()
-		.then(saveAPIResponse, Meteor.bindEnvironment(function(error){
+		callCoinMarketCapAPI()
+		.then(saveAPIResponse)
+		// .then(saveAPIResponse, Meteor.bindEnvironment(function(error){
 
-			console.error('Couldn\'t connect to the Northpole API', error);
+		// 	console.error('Couldn\'t connect to the Northpole API', error);
 
-			return callNexuistAPI()
-			.then(saveAPIResponse);
-		}))
+		// 	return callNexuistAPI()
+		// 	.then(saveAPIResponse);
+		// }))
 		.catch(Meteor.bindEnvironment(function(error){
 			console.error('Couldn\'t connect to any API', error);
 		}));
@@ -87,29 +88,40 @@ Parses the nexuist coinmarket cap API and normalizes the data.
 http://coinmarketcap-nexuist.rhcloud.com/api/all
 
 */
-var callNexuistAPI = function(){
+var callCoinMarketCapAPI = function(){
 	var defer = deferred();
 
 
-	HTTP.get('http://coinmarketcap-nexuist.rhcloud.com/api/all', function(error, result){
+	HTTP.get('https://api.coinmarketcap.com/v1/ticker/?convert=EUR&limit=1000', function(error, result){
+
 
 		if(!error && _.isObject(result.data)) {
-			result.data = _.compact(_.map(result.data, function(item, coinName){
+			var bitcoin = _.find(result.data, function(item){ return (item.symbol === 'BTC'); });
+
+			result.data = _.compact(_.map(result.data, function(item){
 
 				if(item.symbol) {
 
 					return {
 						symbol: item.symbol.toUpperCase(),
-						name: coinName,
-						position: item.position,
+						name: item.name,
+						position: Number(item.rank),
 						priceData: {
-							position: item.position,
-							marketCap: item.market_cap,
-							price: item.price,
-							volume: item.volume,
-							change: item.change,
-							supply: item.supply,
-							timestamp: parseInt(item.timestamp)
+							position: Number(item.rank),
+							marketCap: Number(item.market_cap_usd),
+							price: {
+								usd: Number(item.price_usd),
+								eur: Number(item.price_eur),
+								btc: Number(item.price_usd) / bitcoin.price_usd,
+							},
+							volume: {
+								usd: Number(item['24h_volume_usd']),
+								eur: Number(item['24h_volume_eur']),
+								btc: Number(item['24h_volume_usd']) / bitcoin.price_usd,
+							},
+							change: Number(item.percent_change_24h),
+							supply: Number(item.total_supply),
+							timestamp: Number(item.last_updated)
 						}
 					};
 				}
@@ -119,70 +131,12 @@ var callNexuistAPI = function(){
 
 		// FAIL
 		} else
-			defer.reject('Couldn\'t connect to http://coinmarketcap-nexuist.rhcloud.com');
+			defer.reject('https://api.coinmarketcap.com/v1/ticker/');
 	});
 
 	return defer.promise;
 };
 
-/**
-Parses the northpole coinmarket cap API and normalizes the data.
-
-http://coinmarketcap.northpole.ro/api/v5/all.json
-
-*/
-var callNorthpoleAPI = function(){
-	var defer = deferred();
-
-	HTTP.get('http://coinmarketcap.northpole.ro/api/v5/all.json', function(error, result){
-
-		if(!error && _.isObject(result.data) && result.data.markets) {
-
-			// get current bitcoin price
-			var bitcoin = _.find(result.data.markets, function(item){ return (item.symbol === 'BTC'); });
-
-			result.data = _.compact(_.map(result.data.markets, function(item, coinName){
-
-				if(item.symbol) {
-
-
-					// calculate the other volumes
-					item.volume24 = {
-						usd: bitcoin.price.usd * item.volume24.btc,
-						btc: item.volume24.btc,
-						eur: bitcoin.price.eur * item.volume24.btc,
-						cny: bitcoin.price.cny * item.volume24.btc,
-						cad: bitcoin.price.cad * item.volume24.btc,
-						rub: bitcoin.price.rub * item.volume24.btc
-					};
-
-					return {
-						symbol: item.symbol.toUpperCase(),
-						name: item.name,
-						position: item.position,
-						priceData: {
-							position: item.position,
-							marketCap: item.marketCap,
-							price: item.price,
-							volume: item.volume24,
-							change: (_.isFinite(item.change7h.usd)) ? item.change7h.usd : 0,
-							supply: item.availableSupply.replace(/[\,\.]+/,''),
-							timestamp: item.timestamp
-						}
-					};
-				
-				}
-			}));
-
-			defer.resolve(result.data);
-
-		// FAIL
-		} else
-			defer.reject('Couldn\'t connect to http://coinmarketcap-nexuist.rhcloud.com');
-	});	
-
-	return defer.promise;
-};
 
 
 /**
@@ -267,7 +221,7 @@ var saveAPIResponse = Meteor.bindEnvironment(function(resultData){
 				// INSERT AS NEW COIN
 				if(!existingCoin) {
 
-					item.priceData = [item.priceData];
+					// item.priceData = [item.priceData];
 					Coins.insert(item);
 
 
