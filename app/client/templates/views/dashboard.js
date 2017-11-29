@@ -300,6 +300,29 @@ Template['views_dashboard_coin'].helpers({
 
 	@return {string}
 	*/
+	currentPriceFormatted: function(passedCurrency){
+		var btcPrice = Session.get('bitcoinPrice'),
+			currency = (_.isString(passedCurrency)) ? passedCurrency : Session.get('displayCurrency');
+
+		if(!this)
+			return '';
+
+		if(currency === 'btc')
+			return Helpers.formatNumber(this.currentPrice.btc, currency);
+		
+		else {
+			// prevent display of btc
+			currency = (currency === 'btc') ? 'usd' : currency;
+
+			return Helpers.formatNumber((this.currentPrice.btc) * btcPrice[currency], currency);
+		}
+	},
+
+	/**
+	Gets the current value of the amount
+
+	@return {string}
+	*/
 	currentValue: function(passedCurrency){
 		var btcPrice = Session.get('bitcoinPrice'),
 			currency = (_.isString(passedCurrency)) ? passedCurrency : Session.get('displayCurrency');

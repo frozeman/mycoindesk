@@ -83,7 +83,7 @@
 			<button class="remove-coin icon-cross"></button>							
 		</td>
 		<td class="current-price">
-			<span class="text">{{formatNumber currentPrice.btc 'btc'}}</span>
+			<span class="text">{{currentPriceFormatted}}</span>
 			<span class="sub-text">bought @ {{formatNumber buyPrice 'btc'}}</span>
 			<span class="sub-text change-small {{#if isGreaterThan change 0}}green{{else}}red{{/if}}">
 			{{formatNumber change 'fiat' true}}%
